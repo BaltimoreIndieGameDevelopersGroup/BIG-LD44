@@ -11,6 +11,9 @@ public class PlayerMovement : MonoBehaviour
     Vector2 upAxis = new Vector2(0f, 1f);
     Vector2 rightAxis = new Vector2(1f, 0f);
 
+    public bool goldStatus = false;
+    private HealthStatus health = HealthStatus.Quarter;
+
     void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -42,5 +45,32 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         rigidbody.AddForce(forwardForce * Time.fixedDeltaTime, ForceMode2D.Impulse);
+    }
+
+    void UpdateHealthState(bool increase)
+    {
+        int sum = 0;
+        if (increase)
+        {
+            sum = 1;
+        }
+        else
+        {
+            sum = -1;
+        }
+
+        if((this.health+sum) > HealthStatus.MaxHealth)
+        {
+            // Health is maxed...do nothing
+        }
+        else if ((this.health+sum) < HealthStatus.MinHealth)
+        {
+            // you dead!!!
+            // TODO: Handle death scenario
+        }
+        else
+        {
+            this.health += sum;
+        }
     }
 }
