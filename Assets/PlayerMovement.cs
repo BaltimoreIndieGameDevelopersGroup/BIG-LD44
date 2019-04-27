@@ -6,10 +6,14 @@ public class PlayerMovement : MonoBehaviour
 {
     Rigidbody2D rigidbody;
 
-    public float kForwardForce = 1.0f;
-    Vector2 forwardForce;
     Vector2 upAxis = new Vector2(0f, 1f);
     Vector2 rightAxis = new Vector2(1f, 0f);
+
+    public float kForwardForce = 1.0f;
+    Vector2 forwardForce;
+
+    public float kJumpForce = 1.0f;
+    Vector2 jumpForce;
 
     public bool goldStatus = false;
     private HealthStatus health = HealthStatus.Quarter;
@@ -28,6 +32,9 @@ public class PlayerMovement : MonoBehaviour
     {
         bool keyRight = Input.GetKey("d") || Input.GetKey(KeyCode.RightArrow);
         bool keyLeft = Input.GetKey("a") || Input.GetKey(KeyCode.LeftArrow);
+        bool keyUp = Input.GetKeyDown("w") || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown("space");
+
+        //horizontal movement
         if (keyRight)
         {
             forwardForce = rightAxis * kForwardForce;
@@ -40,11 +47,21 @@ public class PlayerMovement : MonoBehaviour
         {
             forwardForce = new Vector2(0f, 0f);
         }
+
+        //jump
+        //TODO: only be able to jump when Player is touching ground
+        if (keyUp)
+        {
+            jumpForce = upAxis * kJumpForce;
+        }
+        
     }
 
     void FixedUpdate()
     {
-        rigidbody.AddForce(forwardForce * Time.fixedDeltaTime, ForceMode2D.Impulse);
+        Vector2 totalForce = forwardForce + jumpForce;
+        rigidbody.AddForce(totalForce * Time.fixedDeltaTime, ForceMode2D.Impulse);
+        jumpForce = new Vector2(0f, 0f);
     }
 
     void UpdateHealthState(bool increase)
