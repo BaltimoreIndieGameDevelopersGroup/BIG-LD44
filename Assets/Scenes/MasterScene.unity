@@ -235,8 +235,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: -1609146967020684859, guid: 4167206828bcc1c499e7879f41f9daf4,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2ca96ca33381fd84b9d6b78fe935adfb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -626,8 +625,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 1098662621067436660, guid: 4167206828bcc1c499e7879f41f9daf4,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: bea221b2d4d2bb448a9bf3d30ae59000, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -664,7 +662,7 @@ PrefabInstance:
     - target: {fileID: 8281734500521833196, guid: 377f39e3dbc53b64ea40759a63eca79f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.66
+      value: 12.24
       objectReference: {fileID: 0}
     - target: {fileID: 8281734500521833196, guid: 377f39e3dbc53b64ea40759a63eca79f,
         type: 3}
@@ -710,6 +708,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281734500521833198, guid: 377f39e3dbc53b64ea40759a63eca79f,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 377f39e3dbc53b64ea40759a63eca79f, type: 3}
@@ -828,8 +831,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 1098662621067436660, guid: 4167206828bcc1c499e7879f41f9daf4,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: bea221b2d4d2bb448a9bf3d30ae59000, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -898,7 +900,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &875035448
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1095,8 +1097,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 1098662621067436660, guid: 4167206828bcc1c499e7879f41f9daf4,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: bea221b2d4d2bb448a9bf3d30ae59000, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1294,8 +1295,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: -2638270125365655284, guid: 4167206828bcc1c499e7879f41f9daf4,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0900cd2270cb80a4b98d7134f7305421, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1790,8 +1790,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: -7322662446560883618, guid: 4167206828bcc1c499e7879f41f9daf4,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1a8aba7d95dda804d9bbf135860ac518, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2436,8 +2435,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: -2638270125365655284, guid: 4167206828bcc1c499e7879f41f9daf4,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0900cd2270cb80a4b98d7134f7305421, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2621,36 +2619,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5672767178546520941, guid: 6f428203177a42d4093576f4a9bca438,
-        type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5672767178546520941, guid: 6f428203177a42d4093576f4a9bca438,
-        type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5672767178546520941, guid: 6f428203177a42d4093576f4a9bca438,
-        type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5672767178546520943, guid: 6f428203177a42d4093576f4a9bca438,
-        type: 3}
-      propertyPath: offset.z
-      value: -10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5672767178546520943, guid: 6f428203177a42d4093576f4a9bca438,
-        type: 3}
-      propertyPath: offset.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5672767178546520943, guid: 6f428203177a42d4093576f4a9bca438,
-        type: 3}
-      propertyPath: kOffsetX
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f428203177a42d4093576f4a9bca438, type: 3}
