@@ -96,7 +96,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.2
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -131,7 +131,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0921b38277169e941a4207a9df6b2c1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kInitialSpeedY: -10
-  kForwardForce: 5
+  kInitialSpeed: {x: 0, y: -10}
+  kDistToGround: 1.48
+  kForwardForce: 10
+  kDecelerationForce: 20
   kJumpForce: 400
   goldStatus: 0

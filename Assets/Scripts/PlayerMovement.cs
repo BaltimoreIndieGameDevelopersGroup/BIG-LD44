@@ -5,15 +5,17 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody2D rigidbody;
-    public float kInitialSpeedY = 1f;
+    public Vector2 kInitialSpeed = new Vector2(0,-10f);
 
     Vector2 upAxis = new Vector2(0f, 1f);
     Vector2 rightAxis = new Vector2(1f, 0f);
 
-    public float kForwardForce = 1.0f;
+    public float kDistToGround = 1f;
+    public float kForwardForce = 5.0f;
+    public float kDecelerationForce = 10.0f;
     Vector2 forwardForce;
 
-    public float kJumpForce = 1.0f;
+    public float kJumpForce = 400f;
     Vector2 jumpForce;
 
     public bool goldStatus = false;
@@ -32,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        rigidbody.velocity = new Vector2(0f, kInitialSpeedY);
+        rigidbody.velocity = kInitialSpeed;
     }
 
     void Update()
@@ -40,16 +42,23 @@ public class PlayerMovement : MonoBehaviour
         bool keyRight = Input.GetKey("d") || Input.GetKey(KeyCode.RightArrow);
         bool keyLeft = Input.GetKey("a") || Input.GetKey(KeyCode.LeftArrow);
         bool keyUp = Input.GetKeyDown("w") || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown("space");
-
+        bool isGrounded = IsGrounded();
+        
         //horizontal movement
-        if (keyRight)
+        if (isGrounded && keyRight)
         {
-            forwardForce = rightAxis * kForwardForce;
+            if(rigidbody.velocity.x > 0f)
+                forwardForce = rightAxis * kForwardForce;
+            else
+                forwardForce = rightAxis * kDecelerationForce;
             cameraFollow.lookRight();
         }
-        else if (keyLeft)
+        else if (isGrounded && keyLeft)
         {
-            forwardForce = -rightAxis * kForwardForce;
+            if (rigidbody.velocity.x < 0f)
+                forwardForce = -rightAxis * kForwardForce;
+            else
+                forwardForce = -rightAxis * kDecelerationForce;
             cameraFollow.lookLeft();
         }
         else
@@ -59,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
 
         //jump
         //TODO: only be able to jump when Player is touching ground
-        if (keyUp)
+        if (isGrounded && keyUp)
         {
             jumpForce = upAxis * kJumpForce;
         }
@@ -100,7 +109,17 @@ public class PlayerMovement : MonoBehaviour
         jumpForce = new Vector2(0f, 0f);
     }
 
-    void UpdateHealthState(bool increase)
+    bool IsGrounded()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, -upAxis, kDistToGround /*+ 0.1f*/);
+        if (hit.collider != null && hit.collider.tag == "ground")
+        {
+            return true;
+        }
+        return false;
+    }
+
+void UpdateHealthState(bool increase)
     {
         int sum = 0;
         if (increase)
