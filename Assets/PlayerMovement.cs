@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool goldStatus = false;
     private HealthStatus health = HealthStatus.Quarter;
+    bool changeCoin = false;
 
     void Awake()
     {
@@ -54,7 +55,34 @@ public class PlayerMovement : MonoBehaviour
         {
             jumpForce = upAxis * kJumpForce;
         }
-        
+
+        // update image state
+        if (changeCoin)
+        {
+            Sprite myHealthCoin = null;
+            switch (health)
+            {
+                case HealthStatus.Quarter:
+                    myHealthCoin = Resources.Load("quarter", typeof(Sprite)) as Sprite;
+                    this.GetComponent<SpriteRenderer>().sprite = myHealthCoin;
+                    break;
+                case HealthStatus.Nickel:
+                    myHealthCoin = Resources.Load("nickel", typeof(Sprite)) as Sprite;
+                    this.GetComponent<SpriteRenderer>().sprite = myHealthCoin;
+                    break;
+                case HealthStatus.Dime:
+                    myHealthCoin = Resources.Load("dime", typeof(Sprite)) as Sprite;
+                    this.GetComponent<SpriteRenderer>().sprite = myHealthCoin;
+                    break;
+                case HealthStatus.Penny:
+                    myHealthCoin = Resources.Load("penny", typeof(Sprite)) as Sprite;
+                    this.GetComponent<SpriteRenderer>().sprite = myHealthCoin;
+                    break;
+            }
+            this.changeCoin = false;
+        }
+
+
     }
 
     void FixedUpdate()
@@ -88,6 +116,22 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             this.health += sum;
+            this.changeCoin = true;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("collide");
+        if(collision.tag == "damage")
+        {
+            UpdateHealthState(false);
+            Destroy(collision.gameObject);
+        }
+        else if (collision.tag == "health")
+        {
+            UpdateHealthState(true);
+            Destroy(collision.gameObject);
         }
     }
 }
