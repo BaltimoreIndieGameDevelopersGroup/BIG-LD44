@@ -121,3 +121,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDestroyed: 0
   state: 0
+  specialCase: 
+  collisionSound: {fileID: 8300000, guid: 92fd67cb06f91394da047eded2e9d0bc, type: 3}

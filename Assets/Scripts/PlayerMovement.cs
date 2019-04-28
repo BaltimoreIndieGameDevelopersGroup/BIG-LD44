@@ -167,8 +167,10 @@ void UpdateHealthState(bool increase)
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("collide");
+        Debug.Log("collide with " + collision.name);
         Obstacle ob = collision.gameObject.GetComponent<Obstacle>();
+        if (ob == null) return;
+        if (ob.collisionSound != null && audioSource != null) audioSource.PlayOneShot(ob.collisionSound, 1);
         if (ob.state == (int)ObstacleState.Damage)
         {
             if (collision.gameObject.GetComponent<Obstacle>().isDestroyed)

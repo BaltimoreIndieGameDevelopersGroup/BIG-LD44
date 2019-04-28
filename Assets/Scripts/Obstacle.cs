@@ -8,6 +8,8 @@ public class Obstacle : MonoBehaviour
     public int state; // Reflects to what is in ObstacleState
 
     public string specialCase;
+
+    public AudioClip collisionSound;
 }
 
 enum ObstacleState {

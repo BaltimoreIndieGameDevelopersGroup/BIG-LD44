@@ -122,3 +122,4 @@ MonoBehaviour:
   isDestroyed: 1
   state: 1
   specialCase: gold
+  collisionSound: {fileID: 8300000, guid: ef05ffb82c76e034abffe3bbe7c7db21, type: 3}

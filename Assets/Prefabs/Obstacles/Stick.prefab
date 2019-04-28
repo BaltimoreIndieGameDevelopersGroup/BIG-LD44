@@ -95,6 +95,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDestroyed: 1
   state: 0
+  specialCase: 
+  collisionSound: {fileID: 8300000, guid: 61e6423c3e9942a4780f74d74d4fa4e8, type: 3}
 --- !u!60 &2953453334197945967
 PolygonCollider2D:
   m_ObjectHideFlags: 0
