@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 jumpForce;
 
     public AudioClip landSound;
-    private bool wasGrounded = false;
+    private bool groundBelow_prev = false;
 
     private bool goldStatus = false;
     private HealthStatus health = HealthStatus.Quarter;
@@ -49,21 +49,28 @@ public class PlayerMovement : MonoBehaviour
         bool keyRight = Input.GetKey("d") || Input.GetKey(KeyCode.RightArrow);
         bool keyLeft = Input.GetKey("a") || Input.GetKey(KeyCode.LeftArrow);
         bool keyUp = Input.GetKeyDown("w") || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown("space");
-        bool isGrounded = IsGrounded();
+
+        bool groundBelow = false;
+        bool mudBelow = false;
+        IsThereGround(ref groundBelow, ref mudBelow);
+
+        if (mudBelow)
+            rigidbody.velocity = new Vector2(rigidbody.velocity.x * 0.90f, rigidbody.velocity.y);
 
         // Set volume of rolling sound based on ground speed:
-        if (audioSource != null) audioSource.volume = isGrounded ? Mathf.Min(Mathf.Abs(rigidbody.velocity.x), 20f) / 20f : 0;
+        if (audioSource != null)
+            audioSource.volume = groundBelow ? Mathf.Min(Mathf.Abs(rigidbody.velocity.x), 20f) / 20f : 0;
 
         // Landing sound:
-        if (isGrounded && !wasGrounded && audioSource != null && landSound != null)
+        if (groundBelow && !groundBelow_prev && audioSource != null && landSound != null)
         {
             audioSource.volume = 1;
             audioSource.PlayOneShot(landSound, 1);
         }
-        wasGrounded = isGrounded;
+        groundBelow_prev = groundBelow;
 
         //horizontal movement
-        if (isGrounded && keyRight)
+        if (groundBelow && keyRight)
         {
             if(rigidbody.velocity.x > 0f)
                 forwardForce = rightAxis * kForwardForce;
@@ -71,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
                 forwardForce = rightAxis * kDecelerationForce;
             cameraFollow.lookRight();
         }
-        else if (isGrounded && keyLeft)
+        else if (groundBelow && keyLeft)
         {
             if (rigidbody.velocity.x < 0f)
                 forwardForce = -rightAxis * kForwardForce;
@@ -86,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
 
         //jump
         //TODO: only be able to jump when Player is touching ground
-        if (isGrounded && keyUp)
+        if (groundBelow && keyUp)
         {
             jumpForce = upAxis * kJumpForce;
         }
@@ -127,14 +134,23 @@ public class PlayerMovement : MonoBehaviour
         jumpForce = new Vector2(0f, 0f);
     }
 
-    bool IsGrounded()
+    void IsThereGround(ref bool ground, ref bool mud)
     {
+        ground = mud = false;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, -upAxis, kDistToGround /*+ 0.1f*/);
-        if (hit.collider != null && hit.collider.tag == "ground")
+        if (hit.collider != null)
         {
-            return true;
+            if (hit.collider.tag == "mud")
+            {
+                mud = true;
+                ground = true;
+            }
+            else if (hit.collider.tag == "ground")
+            {
+                ground = true;
+            }
         }
-        return false;
+
     }
 
 void UpdateHealthState(bool increase)
@@ -165,24 +181,24 @@ void UpdateHealthState(bool increase)
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
         Debug.Log("collide");
-        Obstacle ob = collision.gameObject.GetComponent<Obstacle>();
-        if (ob.state == (int)ObstacleState.Damage)
+        Obstacle ob = collider.gameObject.GetComponent<Obstacle>();
+        if (ob && ob.state == (int)ObstacleState.Damage)
         {
-            if (collision.gameObject.GetComponent<Obstacle>().isDestroyed)
+            if (collider.gameObject.GetComponent<Obstacle>().isDestroyed)
             {
-                Destroy(collision.gameObject);
+                Destroy(collider.gameObject);
             }
             StartCoroutine(Flasher());
             UpdateHealthState(false);
         }
-        else if (ob.state == (int)ObstacleState.Health)
+        else if (ob && ob.state == (int)ObstacleState.Health)
         {
-            if (collision.gameObject.GetComponent<Obstacle>().isDestroyed)
+            if (collider.gameObject.GetComponent<Obstacle>().isDestroyed)
             {
-                Destroy(collision.gameObject);
+                Destroy(collider.gameObject);
             }
             if(ob.specialCase == "gold")
             {
