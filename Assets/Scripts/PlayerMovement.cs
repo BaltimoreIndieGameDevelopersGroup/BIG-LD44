@@ -25,7 +25,6 @@ public class PlayerMovement : MonoBehaviour
 
     private bool goldStatus = false;
     private HealthStatus health = HealthStatus.Quarter;
-    bool changeCoin = false;
 
     CameraFollowPlayer cameraFollow;
     GameEvents gameEvents;
@@ -98,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // update image state
-        if (changeCoin && !goldStatus)
+        if (!goldStatus)
         {
             Sprite myHealthCoin = null;
             switch (health)
@@ -120,7 +119,6 @@ public class PlayerMovement : MonoBehaviour
                     this.GetComponent<SpriteRenderer>().sprite = myHealthCoin;
                     break;
             }
-            this.changeCoin = false;
         }
 
 
@@ -176,7 +174,6 @@ void UpdateHealthState(bool increase)
         else
         {
             this.health += sum;
-            this.changeCoin = true;
         }
     }
 
