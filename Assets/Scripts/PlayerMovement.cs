@@ -159,7 +159,10 @@ void UpdateHealthState(bool increase)
         }
         else
         {
-            sum = -1;
+            if (!goldStatus)
+            {
+                sum = -1;
+            }
         }
 
         if((this.health+sum) > HealthStatus.MaxHealth)
