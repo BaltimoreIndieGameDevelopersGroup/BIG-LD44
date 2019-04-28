@@ -20,16 +20,21 @@ public class PlayerMovement : MonoBehaviour
     public float kJumpForce = 400f;
     Vector2 jumpForce;
 
+    public AudioClip landSound;
+    private bool wasGrounded = false;
+
     private bool goldStatus = false;
     private HealthStatus health = HealthStatus.Quarter;
     bool changeCoin = false;
 
     CameraFollowPlayer cameraFollow;
     GameEvents gameEvents;
+    AudioSource audioSource; // Rolling sound
 
     void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
         cameraFollow = GameObject.Find("Main Camera").GetComponent<CameraFollowPlayer>();
         gameEvents = GameObject.Find("GameManager").GetComponent<GameEvents>();
     }
@@ -45,7 +50,18 @@ public class PlayerMovement : MonoBehaviour
         bool keyLeft = Input.GetKey("a") || Input.GetKey(KeyCode.LeftArrow);
         bool keyUp = Input.GetKeyDown("w") || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown("space");
         bool isGrounded = IsGrounded();
-        
+
+        // Set volume of rolling sound based on ground speed:
+        if (audioSource != null) audioSource.volume = isGrounded ? Mathf.Min(Mathf.Abs(rigidbody.velocity.x), 20f) / 20f : 0;
+
+        // Landing sound:
+        if (isGrounded && !wasGrounded && audioSource != null && landSound != null)
+        {
+            audioSource.volume = 1;
+            audioSource.PlayOneShot(landSound, 1);
+        }
+        wasGrounded = isGrounded;
+
         //horizontal movement
         if (isGrounded && keyRight)
         {
