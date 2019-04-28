@@ -73,7 +73,12 @@ public class GameEvents : MonoBehaviour
 
     public void GoBackToMainMenu()
     {
-        SceneManager.LoadScene("MasterScene"); //TODO: change to load menu scene
+        SceneManager.LoadScene("MainMenu");
         Time.timeScale = 1f;
+    }
+
+    public void ChangeToPlayScene()
+    {
+        SceneManager.LoadScene("MasterScene");
     }
 }
