@@ -64,8 +64,7 @@ public class PlayerMovement : MonoBehaviour
         // Landing sound:
         if (groundBelow && !groundBelow_prev && audioSource != null && landSound != null)
         {
-            audioSource.volume = 1;
-            audioSource.PlayOneShot(landSound, 1);
+            AudioSource.PlayClipAtPoint(landSound, Camera.main.transform.position, 1);
         }
         groundBelow_prev = groundBelow;
 
@@ -188,7 +187,9 @@ void UpdateHealthState(bool increase)
         if (ob == null)
             return;
         if (ob.collisionSound != null && audioSource != null)
-            audioSource.PlayOneShot(ob.collisionSound, 1);
+        {
+            AudioSource.PlayClipAtPoint(ob.collisionSound, Camera.main.transform.position, 1);
+        }
         if (ob.state == (int)ObstacleState.Damage)
         {
             if (collider.gameObject.GetComponent<Obstacle>().isDestroyed)
