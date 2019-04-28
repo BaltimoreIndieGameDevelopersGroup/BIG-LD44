@@ -20,9 +20,14 @@ public class PlayerMovement : MonoBehaviour
     private HealthStatus health = HealthStatus.Quarter;
     bool changeCoin = false;
 
+    CameraFollowPlayer cameraFollow;
+    GameEvents gameEvents;
+
     void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
+        cameraFollow = GameObject.Find("Main Camera").GetComponent<CameraFollowPlayer>();
+        gameEvents = GameObject.Find("GameManager").GetComponent<GameEvents>();
     }
 
     void Start()
@@ -40,10 +45,12 @@ public class PlayerMovement : MonoBehaviour
         if (keyRight)
         {
             forwardForce = rightAxis * kForwardForce;
+            cameraFollow.lookRight();
         }
         else if (keyLeft)
         {
             forwardForce = -rightAxis * kForwardForce;
+            cameraFollow.lookLeft();
         }
         else
         {
@@ -112,7 +119,7 @@ public class PlayerMovement : MonoBehaviour
         else if ((this.health+sum) < HealthStatus.MinHealth)
         {
             // you dead!!!
-            // TODO: Handle death scenario
+            gameEvents.PlayerDied();
         }
         else
         {

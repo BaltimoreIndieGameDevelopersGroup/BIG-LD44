@@ -1,7 +1,58 @@
 fileFormatVersion: 2
 guid: 0c0545000e775cc4ab153a810fb3e812
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -4463901612835969320
+    second: Copper Bar_0
+  - first:
+      213: -6544996543376304864
+    second: Copper Bar_1
+  - first:
+      213: -6431097896438735284
+    second: Copper Bar_2
+  - first:
+      213: -2549669129568716675
+    second: Copper Bar_3
+  - first:
+      213: 8035000005411543737
+    second: Copper Bar_4
+  - first:
+      213: -8811943459763323890
+    second: Copper Bar_5
+  - first:
+      213: 4173530986472303214
+    second: Copper Bar_6
+  - first:
+      213: -4077716069126432018
+    second: Copper Bar_7
+  - first:
+      213: 1103008769944300467
+    second: Copper Bar_9
+  - first:
+      213: -2653016840974267194
+    second: Copper Bar_10
+  - first:
+      213: 9219066982234979395
+    second: Copper Bar_11
+  - first:
+      213: -5452893673026903809
+    second: Copper Bar_12
+  - first:
+      213: -4956825767871165449
+    second: Copper Bar_13
+  - first:
+      213: -7157179909165469488
+    second: Copper Bar_14
+  - first:
+      213: 6573613508162344637
+    second: Copper Bar_8
+  - first:
+      213: -2841832479074503293
+    second: Copper Bar_15
+  - first:
+      213: 4064841381925572969
+    second: Copper Bar_16
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -69,9 +120,368 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Copper Bar_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 303
+        height: 285
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2abac9eee07c38440bb1d6e739d8cfcd
+      internalID: -4463901612835969320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copper Bar_1
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 143
+        width: 45
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fb36b81433e5f144b1a0e67ccc5e479
+      internalID: -6544996543376304864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copper Bar_2
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 222
+        width: 36
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 067dc6bd2251ec94897f388fa4a5e80c
+      internalID: -6431097896438735284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copper Bar_3
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 210
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77fc8eceed4624647b5c500ace9eb1a1
+      internalID: -2549669129568716675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copper Bar_4
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 187
+        width: 34
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b72a5318386ac64e9cfecc1bb798ddb
+      internalID: 8035000005411543737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copper Bar_5
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 206
+        width: 31
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: facff65ba101713449cb14e45d3bdaa3
+      internalID: -8811943459763323890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copper Bar_6
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 210
+        width: 23
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da876c3d6f7c88741a7d35b3014baf8a
+      internalID: 4173530986472303214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copper Bar_7
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 105
+        width: 27
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 657e5dc8693b1ca4b81422c9df71f338
+      internalID: -4077716069126432018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copper Bar_8
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 30
+        width: 227
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 461aae1cf8667c847b57aa3deac16e24
+      internalID: 6573613508162344637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copper Bar_9
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 83
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 502173bc6716aac4da328bbc27cc0d12
+      internalID: 1103008769944300467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copper Bar_10
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 77
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 176a8fa81b3579741903cf5ee6b69f3e
+      internalID: -2653016840974267194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copper Bar_11
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 44
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5337214d3f7a09c4aa9bdd842a248ab5
+      internalID: 9219066982234979395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copper Bar_12
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 16
+        width: 62
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3200d97a8bca67439cbb684b0edbb78
+      internalID: -5452893673026903809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copper Bar_13
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 19
+        width: 24
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35830030cee26c44c9ea503c31b604ad
+      internalID: -4956825767871165449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copper Bar_14
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 0
+        width: 26
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b17d62e938aa0da4692598b718337e60
+      internalID: -7157179909165469488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
