@@ -6,6 +6,8 @@ public class Obstacle : MonoBehaviour
 {
     public bool isDestroyed;
     public int state; // Reflects to what is in ObstacleState
+
+    public string specialCase;
 }
 
 enum ObstacleState {

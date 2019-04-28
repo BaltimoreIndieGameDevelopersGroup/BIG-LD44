@@ -4,6 +4,8 @@ using UnityEngine;
 
 enum HealthStatus
 {
+    Dollar = 5,
+
     MaxHealth = 4,
 
     Quarter = 4,

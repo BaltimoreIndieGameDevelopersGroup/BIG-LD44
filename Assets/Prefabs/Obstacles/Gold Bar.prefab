@@ -121,3 +121,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDestroyed: 1
   state: 1
+  specialCase: gold
