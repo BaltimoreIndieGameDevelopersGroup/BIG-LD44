@@ -330,7 +330,7 @@ GameObject:
   - component: {fileID: 8502409700990137389}
   m_Layer: 0
   m_Name: Slope End
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -715,7 +715,7 @@ GameObject:
   - component: {fileID: 6964190110480457074}
   m_Layer: 0
   m_Name: Slope Mid
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -935,7 +935,7 @@ GameObject:
   - component: {fileID: 327266340066154330}
   m_Layer: 0
   m_Name: Slope Start
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
