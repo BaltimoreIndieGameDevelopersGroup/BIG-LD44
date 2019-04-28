@@ -150,15 +150,38 @@ void UpdateHealthState(bool increase)
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("collide");
-        if(collision.tag == "damage")
+        Obstacle ob = collision.gameObject.GetComponent<Obstacle>();
+        if (ob.state == (int)ObstacleState.Damage)
         {
+            if (collision.gameObject.GetComponent<Obstacle>().isDestroyed)
+            {
+                Destroy(collision.gameObject);
+            }
+            StartCoroutine(Flasher());
             UpdateHealthState(false);
-            Destroy(collision.gameObject);
         }
-        else if (collision.tag == "health")
+        else if (ob.state == (int)ObstacleState.Health)
         {
             UpdateHealthState(true);
-            Destroy(collision.gameObject);
+            if (collision.gameObject.GetComponent<Obstacle>().isDestroyed)
+            {
+                Destroy(collision.gameObject);
+            }
         }
+    }
+
+    // Functions to be used as Coroutines MUST return an IEnumerator
+    IEnumerator Flasher()
+    {
+        Debug.Log("flashing");
+        Renderer renderer = GetComponent<Renderer>();
+        for (int i = 0; i < 5; i++)
+        {
+            renderer.material.color = Color.white;
+            yield return new WaitForSeconds(.1f);
+            renderer.material.color = Color.gray;
+            yield return new WaitForSeconds(.1f);
+        }
+        renderer.material.color = Color.white;
     }
 }
