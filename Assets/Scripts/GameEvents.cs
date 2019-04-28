@@ -47,6 +47,7 @@ public class GameEvents : MonoBehaviour
     public void PlayerDied()
     {
         Time.timeScale = 0f;
+        ScreenPause.SetActive(false);
         ScreenPlayerDied.SetActive(true);
     }
 
