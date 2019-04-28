@@ -8,6 +8,8 @@ TagManager:
   - health
   - ground
   - mud
+  - levelComplete
+  - gameComplete
   layers:
   - Default
   - TransparentFX

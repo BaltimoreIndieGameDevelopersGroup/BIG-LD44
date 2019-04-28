@@ -9,6 +9,7 @@ public class GameEvents : MonoBehaviour
     public GameObject ScreenPlaying;
     public GameObject ScreenPause;
     public GameObject ScreenLevelComplete;
+    public GameObject ScreenGameComplete;
     public GameObject ScreenPlayerDied;
 
     void Start()
@@ -16,6 +17,7 @@ public class GameEvents : MonoBehaviour
         ScreenPlaying.SetActive(true);
         ScreenPause.SetActive(false);
         ScreenLevelComplete.SetActive(false);
+        ScreenGameComplete.SetActive(false);
         ScreenPlayerDied.SetActive(false);
     }
 
@@ -42,6 +44,12 @@ public class GameEvents : MonoBehaviour
     {
         Time.timeScale = 0f;
         ScreenLevelComplete.SetActive(true);
+    }
+
+    public void GameComplete()
+    {
+        Time.timeScale = 0f;
+        ScreenGameComplete.SetActive(true);
     }
 
     public void PlayerDied()

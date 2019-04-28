@@ -183,6 +183,10 @@ void UpdateHealthState(bool increase)
     private void OnTriggerEnter2D(Collider2D collider)
     {
         Debug.Log("collide with " + collider.name);
+        if (collider.tag == "levelComplete")
+            gameEvents.LevelComplete();
+        else if (collider.tag == "gameComplete")
+                gameEvents.GameComplete();
         Obstacle ob = collider.gameObject.GetComponent<Obstacle>();
         if (ob == null)
             return;
