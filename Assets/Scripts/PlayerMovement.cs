@@ -185,7 +185,8 @@ void UpdateHealthState(bool increase)
     {
         Debug.Log("collide with " + collider.name);
         Obstacle ob = collider.gameObject.GetComponent<Obstacle>();
-        if (ob == null) return;
+        if (ob == null)
+            return;
         if (ob.collisionSound != null && audioSource != null)
             audioSource.PlayOneShot(ob.collisionSound, 1);
         if (ob.state == (int)ObstacleState.Damage)
