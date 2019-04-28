@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1818546359122792294}
   - component: {fileID: 5941509326679486698}
-  - component: {fileID: 3537394572814128100}
   - component: {fileID: 5738924031805938174}
+  - component: {fileID: 2953453334197945967}
   m_Layer: 0
   m_Name: Stick
   m_TagString: Untagged
@@ -26,13 +26,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2834810120602589099}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 59.395233, y: 0.9673157, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.09358697, w: 0.9956112}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -10.74}
 --- !u!212 &5941509326679486698
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -81,8 +81,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &3537394572814128100
-BoxCollider2D:
+--- !u!114 &5738924031805938174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2834810120602589099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbea005cedfdc4cafbc11212669f60ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDestroyed: 1
+  state: 0
+--- !u!60 &2953453334197945967
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -104,20 +118,12 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 6.81, y: 2.64}
-  m_EdgeRadius: 0
---- !u!114 &5738924031805938174
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2834810120602589099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbea005cedfdc4cafbc11212669f60ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isDestroyed: 1
-  state: 0
+  m_Points:
+    m_Paths:
+    - - {x: 2.6998444, y: 0.7719352}
+      - {x: -2.8599625, y: -0.11670399}
+      - {x: -3.0822868, y: -0.6113609}
+      - {x: 0.9270592, y: 0.015189946}
+      - {x: 1.819828, y: -0.14762908}
+      - {x: 2.010727, y: 0.17286408}
+      - {x: 2.6165924, y: 0.26340437}
