@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody2D rigidbody;
+    public float kInitialSpeedY = 1f;
 
     Vector2 upAxis = new Vector2(0f, 1f);
     Vector2 rightAxis = new Vector2(1f, 0f);
@@ -26,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        
+        rigidbody.velocity = new Vector2(0f, kInitialSpeedY);
     }
 
     void Update()

@@ -47,7 +47,7 @@ public class GameEvents : MonoBehaviour
     public void PlayerDied()
     {
         Time.timeScale = 0f;
-        //show some canvas with options?
+        ScreenPlayerDied.SetActive(true);
     }
 
     public void LoadNextLevel()
