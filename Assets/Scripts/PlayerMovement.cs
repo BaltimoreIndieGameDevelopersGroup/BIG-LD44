@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private const int GOLD_STATUS_DURATION = 5;
+
     Rigidbody2D rigidbody;
     public Vector2 kInitialSpeed = new Vector2(0,-10f);
 
@@ -18,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     public float kJumpForce = 400f;
     Vector2 jumpForce;
 
-    public bool goldStatus = false;
+    private bool goldStatus = false;
     private HealthStatus health = HealthStatus.Quarter;
     bool changeCoin = false;
 
@@ -74,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // update image state
-        if (changeCoin)
+        if (changeCoin && !goldStatus)
         {
             Sprite myHealthCoin = null;
             switch (health)
@@ -162,10 +164,17 @@ void UpdateHealthState(bool increase)
         }
         else if (ob.state == (int)ObstacleState.Health)
         {
-            UpdateHealthState(true);
             if (collision.gameObject.GetComponent<Obstacle>().isDestroyed)
             {
                 Destroy(collision.gameObject);
+            }
+            if(ob.specialCase == "gold")
+            {
+                StartCoroutine(GoGoldMode());
+            }
+            else
+            {
+                UpdateHealthState(true);
             }
         }
     }
@@ -183,5 +192,15 @@ void UpdateHealthState(bool increase)
             yield return new WaitForSeconds(.1f);
         }
         renderer.material.color = Color.white;
+    }
+
+    IEnumerator GoGoldMode()
+    {
+        Debug.Log("gold");
+        goldStatus = true;
+        Sprite myHealthCoin = Resources.Load("dollar", typeof(Sprite)) as Sprite;
+        this.GetComponent<SpriteRenderer>().sprite = myHealthCoin;
+        yield return new WaitForSeconds(GOLD_STATUS_DURATION);
+        goldStatus = false;
     }
 }
