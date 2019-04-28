@@ -15,6 +15,9 @@ public class PlayerMovement : MonoBehaviour
     public float kJumpForce = 1.0f;
     Vector2 jumpForce;
 
+    public bool goldStatus = false;
+    private HealthStatus health = HealthStatus.Quarter;
+
     void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -59,5 +62,32 @@ public class PlayerMovement : MonoBehaviour
         Vector2 totalForce = forwardForce + jumpForce;
         rigidbody.AddForce(totalForce * Time.fixedDeltaTime, ForceMode2D.Impulse);
         jumpForce = new Vector2(0f, 0f);
+    }
+
+    void UpdateHealthState(bool increase)
+    {
+        int sum = 0;
+        if (increase)
+        {
+            sum = 1;
+        }
+        else
+        {
+            sum = -1;
+        }
+
+        if((this.health+sum) > HealthStatus.MaxHealth)
+        {
+            // Health is maxed...do nothing
+        }
+        else if ((this.health+sum) < HealthStatus.MinHealth)
+        {
+            // you dead!!!
+            // TODO: Handle death scenario
+        }
+        else
+        {
+            this.health += sum;
+        }
     }
 }
