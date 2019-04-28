@@ -13,6 +13,7 @@ public class Obstacle : MonoBehaviour
 }
 
 enum ObstacleState {
+    Death = -1,
     Damage = 0,
     Health = 1
 }

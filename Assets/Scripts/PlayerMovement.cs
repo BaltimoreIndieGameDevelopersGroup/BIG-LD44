@@ -190,7 +190,11 @@ void UpdateHealthState(bool increase)
         {
             AudioSource.PlayClipAtPoint(ob.collisionSound, Camera.main.transform.position, 1);
         }
-        if (ob.state == (int)ObstacleState.Damage)
+        if (ob.state == (int)ObstacleState.Death)
+        {
+            gameEvents.PlayerDied();
+        }
+        else if (ob.state == (int)ObstacleState.Damage)
         {
             if (collider.gameObject.GetComponent<Obstacle>().isDestroyed)
             {
@@ -235,9 +239,11 @@ void UpdateHealthState(bool increase)
     {
         Debug.Log("gold");
         goldStatus = true;
+        Sprite currentSprite = gameObject.GetComponent<SpriteRenderer>().sprite;
         Sprite myHealthCoin = Resources.Load("dollar", typeof(Sprite)) as Sprite;
         this.GetComponent<SpriteRenderer>().sprite = myHealthCoin;
         yield return new WaitForSeconds(GOLD_STATUS_DURATION);
         goldStatus = false;
+        gameObject.GetComponent<SpriteRenderer>().sprite = currentSprite;
     }
 }
