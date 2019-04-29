@@ -6,6 +6,7 @@ public class RatMovement : MonoBehaviour
 {
     public float kDistanceX = 20f;
     public float kMoveDistance = 0.1f;
+    public float kVelX = 1f;
 
     public float kJumpForce = 400f;
 
@@ -29,16 +30,19 @@ public class RatMovement : MonoBehaviour
     Vector2 targetPosition;
 
     Rigidbody2D rigidbody;
+    Animator animator;
 
     void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     void Start()
     {
         initialPosition = transform.position;
         targetPosition = initialPosition + new Vector2(-kDistanceX, 0f);
+        animator.Play("rat");
     }
 
     void Update()
@@ -85,18 +89,25 @@ public class RatMovement : MonoBehaviour
         else if (state == RatState.walkingRight)
         {
             if (gameObject.transform.position.x >= initialPosition.x)
+            {
                 state = RatState.startJump;
+                DontMove();
+            }
         }
         else if (state == RatState.startJump)
         {
-            Vector2 totalForce = new Vector2(0, kJumpForce);
-            rigidbody.AddForce(totalForce * Time.fixedDeltaTime, ForceMode2D.Impulse);
+            Vector2 force = new Vector2(0, kJumpForce);
+            rigidbody.AddForce(force, ForceMode2D.Impulse);
             state = RatState.jumping;
+            //animator.Play("rat jumps");
         }
         else if (state == RatState.jumping)
         {
-            if(isGrounded())
+            if (isGrounded())
+            {
                 state = RatState.idle;
+                //animator.Play("rat");
+            }
         }
     }
 
@@ -113,21 +124,31 @@ public class RatMovement : MonoBehaviour
         return false;
     }
 
-
+    void DontMove()
+    {
+        Vector2 newVel = new Vector3(   0,
+                                        rigidbody.velocity.y);
+        rigidbody.velocity = newVel;
+    }
     void MoveLeft()
     {
-        Vector3 newPos = new Vector3(   transform.position.x - kMoveDistance,
-                                        transform.position.y,
-                                        transform.position.z);
-        transform.position = newPos;
+        Vector2 newVel = new Vector3(   -kVelX,
+                                        rigidbody.velocity.y);
+        rigidbody.velocity = newVel;
+        //Vector3 newPos = new Vector3(   transform.position.x - kMoveDistance,
+        //                                transform.position.y,
+        //                                transform.position.z);
+        //transform.position = newPos;
     }
-
     void MoveRight()
     {
-        Vector3 newPos = new Vector3(   transform.position.x + kMoveDistance,
-                                        transform.position.y,
-                                        transform.position.z);
-        transform.position = newPos;
+        Vector2 newVel = new Vector3(   kVelX,
+                                        rigidbody.velocity.y);
+        rigidbody.velocity = newVel;
+        //Vector3 newPos = new Vector3(   transform.position.x + kMoveDistance,
+        //                                transform.position.y,
+        //                                transform.position.z);
+        //transform.position = newPos;
     }
 
     IEnumerator ChangeFromIdle()

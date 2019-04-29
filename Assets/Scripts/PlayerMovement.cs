@@ -180,6 +180,13 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("collide with " + collision.collider.name);
+        if (collision.collider.tag == "rat")
+            gameEvents.PlayerDied();
+    }
+
     private void OnTriggerEnter2D(Collider2D collider)
     {
         Debug.Log("collide with " + collider.name);

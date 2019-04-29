@@ -10,6 +10,7 @@ TagManager:
   - mud
   - levelComplete
   - gameComplete
+  - rat
   layers:
   - Default
   - TransparentFX
