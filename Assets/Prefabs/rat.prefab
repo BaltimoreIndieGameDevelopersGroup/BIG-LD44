@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 7343430962493465087}
   - component: {fileID: 7343430962493465086}
   - component: {fileID: 7343430962493465073}
-  - component: {fileID: 4548536462260825283}
+  - component: {fileID: 1725979035}
+  - component: {fileID: 3213564753172495338}
+  - component: {fileID: 1725979034}
   m_Layer: 0
   m_Name: rat
   m_TagString: rat
@@ -467,12 +469,5 @@ MonoBehaviour:
   kDistanceX: 10
   kMoveDistance: 0.1
   kVelX: 3
-  kJumpForce: 1
+  kJumpForce: 10
   kDistToGround: 2.5
-  m_Script: {fileID: 11500000, guid: fbea005cedfdc4cafbc11212669f60ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isDestroyed: 0
-  state: 0
-  specialCase: 
-  collisionSound: {fileID: 0}
