@@ -55,22 +55,24 @@ public class RatMovement : MonoBehaviour
         else if (state == RatState.walkingLeft)
         {
             MoveLeft();
-            if (gameObject.transform.position.x == targetPosition.x)
+            if (gameObject.transform.position.x <= targetPosition.x)
                 state = RatState.walkingRight;
         }
         else if(state == RatState.walkingRight)
         {
             MoveRight();
-            if (gameObject.transform.position.x == initialPosition.x)
-                state = RatState.walkingRight;
+            if (gameObject.transform.position.x >= initialPosition.x)
+            {
+                state = RatState.startJump;
+            }
         }
         else if (state == RatState.startJump)
         {
-           
+            DontMove();
         }
         else if (state == RatState.jumping)
         {
-
+            DontMove();
         }
     }
 
@@ -83,16 +85,11 @@ public class RatMovement : MonoBehaviour
         }
         else if (state == RatState.walkingLeft)
         {
-            if (gameObject.transform.position.x <= targetPosition.x)
-                state = RatState.walkingRight;
+            
         }
         else if (state == RatState.walkingRight)
         {
-            if (gameObject.transform.position.x >= initialPosition.x)
-            {
-                state = RatState.startJump;
-                DontMove();
-            }
+            
         }
         else if (state == RatState.startJump)
         {
@@ -126,7 +123,7 @@ public class RatMovement : MonoBehaviour
 
     void DontMove()
     {
-        Vector2 newVel = new Vector3(   0,
+        Vector2 newVel = new Vector3(   0f,
                                         rigidbody.velocity.y);
         rigidbody.velocity = newVel;
     }
