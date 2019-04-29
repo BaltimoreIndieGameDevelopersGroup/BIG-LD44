@@ -29,11 +29,15 @@ public class PlayerMovement : MonoBehaviour
     CameraFollowPlayer cameraFollow;
     GameEvents gameEvents;
     AudioSource audioSource; // Rolling sound
+    SpriteRenderer spriteRenderer;
+    Sprite myHealthCoin;
+    Sprite myHealthCoinStanding;
 
     void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         cameraFollow = GameObject.Find("Main Camera").GetComponent<CameraFollowPlayer>();
         gameEvents = GameObject.Find("GameManager").GetComponent<GameEvents>();
     }
@@ -41,6 +45,8 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rigidbody.velocity = kInitialSpeed;
+        myHealthCoin = Resources.Load("quarter", typeof(Sprite)) as Sprite;
+        myHealthCoinStanding = Resources.Load("standing_quarter", typeof(Sprite)) as Sprite;
     }
 
     void Update()
@@ -99,24 +105,29 @@ public class PlayerMovement : MonoBehaviour
         // update image state
         if (!goldStatus)
         {
-            Sprite myHealthCoin = null;
+            var isStanding = false; // No time to tweak: (groundBelow || mudBelow) && (Mathf.Abs(rigidbody.velocity.x) < 0.1f);
+            myHealthCoin = null;
             switch (health)
             {
                 case HealthStatus.Quarter:
                     myHealthCoin = Resources.Load("quarter", typeof(Sprite)) as Sprite;
-                    this.GetComponent<SpriteRenderer>().sprite = myHealthCoin;
+                    myHealthCoinStanding = Resources.Load("standing_quarter", typeof(Sprite)) as Sprite;
+                    spriteRenderer.sprite = isStanding ? myHealthCoinStanding : myHealthCoin;
                     break;
                 case HealthStatus.Nickel:
                     myHealthCoin = Resources.Load("nickel", typeof(Sprite)) as Sprite;
-                    this.GetComponent<SpriteRenderer>().sprite = myHealthCoin;
+                    myHealthCoinStanding = Resources.Load("standing_quarter", typeof(Sprite)) as Sprite;
+                    spriteRenderer.sprite = isStanding ? myHealthCoinStanding : myHealthCoin;
                     break;
                 case HealthStatus.Dime:
                     myHealthCoin = Resources.Load("dime", typeof(Sprite)) as Sprite;
-                    this.GetComponent<SpriteRenderer>().sprite = myHealthCoin;
+                    myHealthCoinStanding = Resources.Load("standing_quarter", typeof(Sprite)) as Sprite;
+                    spriteRenderer.sprite = isStanding ? myHealthCoinStanding : myHealthCoin;
                     break;
                 case HealthStatus.Penny:
                     myHealthCoin = Resources.Load("penny", typeof(Sprite)) as Sprite;
-                    this.GetComponent<SpriteRenderer>().sprite = myHealthCoin;
+                    myHealthCoinStanding = Resources.Load("standing_quarter", typeof(Sprite)) as Sprite;
+                    spriteRenderer.sprite = isStanding ? myHealthCoinStanding : myHealthCoin;
                     break;
             }
         }
@@ -250,7 +261,8 @@ public class PlayerMovement : MonoBehaviour
     {
         Debug.Log("gold");
         goldStatus = true;
-        Sprite myHealthCoin = Resources.Load("dollar", typeof(Sprite)) as Sprite;
+        myHealthCoin = Resources.Load("dollar", typeof(Sprite)) as Sprite;
+        myHealthCoinStanding = Resources.Load("dollar", typeof(Sprite)) as Sprite;
         this.GetComponent<SpriteRenderer>().sprite = myHealthCoin;
         yield return new WaitForSeconds(GOLD_STATUS_DURATION);
         goldStatus = false;
