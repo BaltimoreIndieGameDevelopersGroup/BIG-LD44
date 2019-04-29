@@ -666,11 +666,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ramp
       objectReference: {fileID: 0}
-    - target: {fileID: 4156481015046129612, guid: eec09cc4aa7ff8245bfae0fd99afc09a,
-        type: 3}
-      propertyPath: m_TagString
-      value: ground
-      objectReference: {fileID: 0}
     - target: {fileID: 4156481015046129615, guid: eec09cc4aa7ff8245bfae0fd99afc09a,
         type: 3}
       propertyPath: m_LocalPosition.x
