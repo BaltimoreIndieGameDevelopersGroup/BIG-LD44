@@ -14,16 +14,11 @@ public class GameEvents : MonoBehaviour
 
     void Start()
     {
-        ScreenPlaying.SetActive(true);
-        ScreenPause.SetActive(false);
-        ScreenLevelComplete.SetActive(false);
-        ScreenGameComplete.SetActive(false);
-        ScreenPlayerDied.SetActive(false);
-    }
-
-    void Update()
-    {
-        
+        if (ScreenPlaying != null) ScreenPlaying.SetActive(true);
+        if (ScreenPause != null) ScreenPause.SetActive(false);
+        if (ScreenLevelComplete != null) ScreenLevelComplete.SetActive(false);
+        if (ScreenGameComplete != null) ScreenGameComplete.SetActive(false);
+        if (ScreenPlayerDied != null) ScreenPlayerDied.SetActive(false);
     }
 
     public void Pause()
