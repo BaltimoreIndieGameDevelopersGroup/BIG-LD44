@@ -150,7 +150,7 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-void UpdateHealthState(bool increase)
+    void UpdateHealthState(bool increase)
     {
         int sum = 0;
         if (increase)
