@@ -61,7 +61,14 @@ public class GameEvents : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        SceneManager.LoadScene("MasterScene"); //TODO: change to load next level (where we have more levels)
+        if (SceneManager.GetActiveScene().name == "MainScene")
+            SceneManager.LoadScene("PabloScene");
+        else if (SceneManager.GetActiveScene().name == "PabloScene")
+            SceneManager.LoadScene("TonyScene");
+        else if (SceneManager.GetActiveScene().name == "TonyScene")
+            SceneManager.LoadScene("RobScene");
+        else if (SceneManager.GetActiveScene().name == "RobScene")
+            SceneManager.LoadScene("MainScene");
         Time.timeScale = 1f;
     }
 
@@ -79,6 +86,6 @@ public class GameEvents : MonoBehaviour
 
     public void ChangeToPlayScene()
     {
-        SceneManager.LoadScene("MasterScene");
+        SceneManager.LoadScene("PabloScene");
     }
 }

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4156481015046129615}
   m_Layer: 0
-  m_Name: Ramp_Short
+  m_Name: Ramp_Small
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 4156481016586062455}
   m_Layer: 0
   m_Name: Wood Ramp Mid Ground
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

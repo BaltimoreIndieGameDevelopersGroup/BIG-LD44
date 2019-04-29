@@ -250,11 +250,9 @@ public class PlayerMovement : MonoBehaviour
     {
         Debug.Log("gold");
         goldStatus = true;
-        Sprite currentSprite = gameObject.GetComponent<SpriteRenderer>().sprite;
         Sprite myHealthCoin = Resources.Load("dollar", typeof(Sprite)) as Sprite;
         this.GetComponent<SpriteRenderer>().sprite = myHealthCoin;
         yield return new WaitForSeconds(GOLD_STATUS_DURATION);
         goldStatus = false;
-        gameObject.GetComponent<SpriteRenderer>().sprite = currentSprite;
     }
 }
