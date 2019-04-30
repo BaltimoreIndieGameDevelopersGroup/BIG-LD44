@@ -23,6 +23,12 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip landSound;
     private bool groundBelow_prev = false;
 
+    public Vector3 quarterScale = Vector3.one;
+    public Vector3 dimeScale = new Vector3(0.6f, 0.6f, 0.6f);
+    public Vector3 nickelScale = new Vector3(0.8f, 0.8f, 0.8f);
+    public Vector3 pennyScale = new Vector3(0.7f, 0.7f, 0.7f);
+    public Vector3 dollarScale = new Vector3(1.1f, 1.1f, 1.1f);
+
     private bool goldStatus = false;
     private HealthStatus health = HealthStatus.Quarter;
 
@@ -103,8 +109,12 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // update image state
-        if (!goldStatus)
+        if (goldStatus)
         {
+            transform.localScale = dollarScale;
+        }
+        else
+        { 
             var isStanding = false; // No time to tweak: (groundBelow || mudBelow) && (Mathf.Abs(rigidbody.velocity.x) < 0.1f);
             myHealthCoin = null;
             switch (health)
@@ -113,21 +123,25 @@ public class PlayerMovement : MonoBehaviour
                     myHealthCoin = Resources.Load("quarter", typeof(Sprite)) as Sprite;
                     myHealthCoinStanding = Resources.Load("standing_quarter", typeof(Sprite)) as Sprite;
                     spriteRenderer.sprite = isStanding ? myHealthCoinStanding : myHealthCoin;
+                    transform.localScale = quarterScale;
                     break;
                 case HealthStatus.Nickel:
                     myHealthCoin = Resources.Load("nickel", typeof(Sprite)) as Sprite;
                     myHealthCoinStanding = Resources.Load("standing_quarter", typeof(Sprite)) as Sprite;
                     spriteRenderer.sprite = isStanding ? myHealthCoinStanding : myHealthCoin;
+                    transform.localScale = nickelScale;
                     break;
                 case HealthStatus.Dime:
                     myHealthCoin = Resources.Load("dime", typeof(Sprite)) as Sprite;
                     myHealthCoinStanding = Resources.Load("standing_quarter", typeof(Sprite)) as Sprite;
                     spriteRenderer.sprite = isStanding ? myHealthCoinStanding : myHealthCoin;
+                    transform.localScale = dimeScale;
                     break;
                 case HealthStatus.Penny:
                     myHealthCoin = Resources.Load("penny", typeof(Sprite)) as Sprite;
                     myHealthCoinStanding = Resources.Load("standing_quarter", typeof(Sprite)) as Sprite;
                     spriteRenderer.sprite = isStanding ? myHealthCoinStanding : myHealthCoin;
+                    transform.localScale = pennyScale;
                     break;
             }
         }
@@ -193,14 +207,14 @@ public class PlayerMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("collide with " + collision.collider.name);
+        //Debug.Log("collide with " + collision.collider.name);
         if (collision.collider.tag == "rat")
             gameEvents.PlayerDied();
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("collide with " + collider.name);
+        //Debug.Log("collide with " + collider.name);
         if (collider.tag == "levelComplete")
             gameEvents.LevelComplete();
         else if (collider.tag == "gameComplete")
@@ -245,7 +259,7 @@ public class PlayerMovement : MonoBehaviour
     // Functions to be used as Coroutines MUST return an IEnumerator
     IEnumerator Flasher()
     {
-        Debug.Log("flashing");
+        //Debug.Log("flashing");
         Renderer renderer = GetComponent<Renderer>();
         for (int i = 0; i < 5; i++)
         {

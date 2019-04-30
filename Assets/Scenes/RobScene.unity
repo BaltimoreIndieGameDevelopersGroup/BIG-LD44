@@ -909,6 +909,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1671212963}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &171843684 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9005992833750535844, guid: ffb348026d5b37e4e9597f224720fa1f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1921000538}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &171843685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171843684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f181082ea8f9a5478ab166c87ee6282, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  url: http://pixelcrushers.com/big/loose_change/ending_scene.avi
+  player: {fileID: 1115789475}
 --- !u!4 &173226394 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2603694608983854219, guid: 85ea2c7671cfd49f888e04ae47388a4a,
@@ -5453,6 +5473,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 454637357}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1115789475 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8281734500521833193, guid: 377f39e3dbc53b64ea40759a63eca79f,
+    type: 3}
+  m_PrefabInstance: {fileID: 523780841}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1124638845
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9176,6 +9202,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9005992833750535842, guid: ffb348026d5b37e4e9597f224720fa1f,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005992833750535842, guid: ffb348026d5b37e4e9597f224720fa1f,
+        type: 3}
+      propertyPath: m_TargetCamera
+      value: 
+      objectReference: {fileID: 1315939104}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffb348026d5b37e4e9597f224720fa1f, type: 3}
 --- !u!1001 &1925814382
